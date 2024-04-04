@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import Axios from 'axios';
 import { FaUser, FaLock } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const RegisterForm = () => {
+  const [isRegistered, setIsRegistered] = useState(false);
 
   const handleClickCadastro = (values) => {
     Axios.post("http://localhost:3001/cadastro", {   
@@ -12,6 +14,7 @@ const RegisterForm = () => {
       password: values.password,
     }).then((response) => {
       console.log(response);
+      setIsRegistered(true); // Define isRegistered como true após o cadastro bem-sucedido
     });
   };
 
@@ -75,7 +78,11 @@ const RegisterForm = () => {
               />
             </div>
 
+            {isRegistered && <p className='cd-sucesso'>Usuário cadastrado com sucesso!</p>}
+            <Link to="/login">
             <button className='button' type='submit'>Cadastrar</button>
+            </Link>
+            
           </Form>
         )}
       </Formik>

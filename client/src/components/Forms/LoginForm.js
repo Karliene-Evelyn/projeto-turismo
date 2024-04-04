@@ -1,12 +1,13 @@
-import '../../App.js';
+import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import Axios from 'axios';
 import { FaUser, FaLock } from "react-icons/fa";
-import { Link } from 'react-router-dom';
-import '../Forms/CSS/style.css';
+import { Link, useNavigate } from 'react-router-dom';
+import '../Forms/CSS/style-form.css';
 
 const LoginForm = () => {
+  const navigate = useNavigate(); // Use useNavigate para navegação
 
   const handleClickLogin = (values) => { 
     Axios.post("http://localhost:3001/login", { 
@@ -14,8 +15,13 @@ const LoginForm = () => {
       password: values.password,
     }).then((response) => {
       console.log(response);
+      // Aqui podemos executar qualquer lógica adicional após o login, como armazenar o token de autenticação em localStorage
+      // No entanto, não precisamos lidar com o redirecionamento aqui
+      navigate('/'); // Redirecionar para a página inicial após o login
+    }).catch(error => {
+      console.error(error);
     });
-   };
+  };
 
   const validationLogin = yup.object().shape({
     email: yup
@@ -27,13 +33,11 @@ const LoginForm = () => {
       yup.string().min(6, "A senha dever ter 6 caracteres.").required("Este campo é obrigatório!")
   });
 
-
   return (
     <div className="container">
-
       <h1>Login</h1>
       <Formik
-         initialValues={{
+        initialValues={{
           email: '',
           password: ''
         }}
@@ -60,14 +64,13 @@ const LoginForm = () => {
           </div>
 
           <button className='button' type='submit'>Login</button>
-          
+
           <div className="register-link">
-          <p>Não tem uma conta? <Link to="/register">Clique aqui.</Link></p>
-        </div>
+            <p>Não tem uma conta? <Link to="/register">Clique aqui.</Link></p>
+          </div>
         </Form>
       </Formik>
-
-      </div>
+    </div>
   );
 }
 

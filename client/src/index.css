@@ -15,9 +15,11 @@ body {
   align-items: center;
   min-height: 100vh;
 
+
   background: url(../src/components/Forms/Img/Praias-de-Alter-do-Chão.jpg) no-repeat;
   background-size: cover;
   background-position: center;
+
 
 }
 
@@ -25,3 +27,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
