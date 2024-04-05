@@ -4,6 +4,8 @@ import * as yup from 'yup';
 import Axios from 'axios';
 import { FaUser, FaLock } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import '../Register/style-register.css';
+
 
 const RegisterForm = () => {
   const [isRegistered, setIsRegistered] = useState(false);

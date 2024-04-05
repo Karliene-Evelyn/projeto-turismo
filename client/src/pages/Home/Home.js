@@ -1,4 +1,4 @@
-import '../Home/CSS/styles-home.css';
+import '../Home/style-home.css';
 
 const home = () => {
   
@@ -15,7 +15,7 @@ const home = () => {
       />
       <button className='button' type='submit'>Procurar</button>
       </div>
-      
+      1
       
       <div>
       

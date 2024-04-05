@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import Axios from 'axios';
 import { FaUser, FaLock } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
-import '../Forms/CSS/style-form.css';
+import '../Login/style-login.css';
 
 const LoginForm = () => {
   const navigate = useNavigate(); // Use useNavigate para navegação
