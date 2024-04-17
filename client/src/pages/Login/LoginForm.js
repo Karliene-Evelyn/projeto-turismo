@@ -5,12 +5,13 @@ import Axios from 'axios';
 import { FaUser, FaLock } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import '../Login/style-login.css';
+import logo from '../../assets/img/logo.png';
 
 const LoginForm = () => {
   const navigate = useNavigate(); // Use useNavigate para navegação
 
-  const handleClickLogin = (values) => { 
-    Axios.post("http://localhost:3001/login", { 
+  const handleClickLogin = (values) => {
+    Axios.post("http://localhost:3001/login", {
       email: values.email,
       password: values.password,
     }).then((response) => {
@@ -35,7 +36,9 @@ const LoginForm = () => {
 
   return (
     <div className="container">
-      <h1>Login</h1>
+      <div className="form-image">
+        <img src={logo} alt="logo" />
+      </div>
       <Formik
         initialValues={{
           email: '',
@@ -45,7 +48,14 @@ const LoginForm = () => {
         validationSchema={validationLogin}
       >
         <Form className='login-form'>
+          <div className="form-header">
+            <div className="title">
+              <h1>Login</h1>
+            </div>
+          </div>
+
           <div className='login-form-group'>
+          <div className='form-box'>
             <Field name="email" className="form-field" placeholder="E-mail" />
             <FaUser className='icon' />
             <ErrorMessage
@@ -54,7 +64,7 @@ const LoginForm = () => {
               className='form-error' />
           </div>
 
-          <div className='login-form-group'>
+          <div className='form-box'>
             <Field type="password" name="password" className="form-field" placeholder="Senha" />
             <FaLock className='icon' />
             <ErrorMessage
@@ -67,6 +77,7 @@ const LoginForm = () => {
 
           <div className="register-link">
             <p>Não tem uma conta? <Link to="/register">Clique aqui.</Link></p>
+          </div>
           </div>
         </Form>
       </Formik>
