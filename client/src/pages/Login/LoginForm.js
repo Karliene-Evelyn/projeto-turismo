@@ -56,7 +56,7 @@ const LoginForm = () => {
 
           <div className='login-form-group'>
           <div className='form-box'>
-            <Field name="email" className="form-field" placeholder="E-mail" />
+            <Field name="email" className="form-field" placeholder="E-mail:" />
             <FaUser className='icon' />
             <ErrorMessage
               component="span"
@@ -65,7 +65,7 @@ const LoginForm = () => {
           </div>
 
           <div className='form-box'>
-            <Field type="password" name="password" className="form-field" placeholder="Senha" />
+            <Field type="password" name="password" className="form-field" placeholder="Senha:" />
             <FaLock className='icon' />
             <ErrorMessage
               component="span"

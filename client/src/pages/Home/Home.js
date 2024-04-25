@@ -1,42 +1,49 @@
-// App.js
 import React, { useState } from 'react';
-import SearchBar from './Componentes/SearchBar.jsx';
-import CategoryButtons from './Componentes/CategoryButtons.jsx';
-import VisitedPlacesList from './Componentes/VisitedPlacesList.jsx';
-import './style-home.css'
+import SearchBar from './Componentes/SearchBar';
+import PointDetail from './Componentes/PointDetail';
+import CategoryComponent from './Componentes/CategoryComponent';
+import './style-home.css';
 
-function Home() {
+const Home = () => {
+  const [pointId, setPointId] = useState(null);
+
+  const handlePointIdUpdate = (id) => {
+    setPointId(id);
+  };
+
+  const updatePointsByCategory = async (categoryId) => {
+    try {
+      const response = await fetch(`/ponto-turistico/categoria/${categoryId}`);
+      if (!response.ok) {
+        throw new Error('Erro ao buscar pontos turísticos por categoria.');
+      }
+      const data = await response.json();
+      console.log(data); // Verifique se os dados dos pontos turísticos são recebidos corretamente da API
+      // Atualize o estado dos pontos turísticos com os dados recebidos da API
+      // setPontosTuristicos(data);
+    } catch (error) {
+      console.error(error);
+      // Trate o erro adequadamente
+    }
+  };
   
-  // const categories = [
-  //   { name: 'Praias', image: require('../../assets/categorias/praia.png') },
-  //   { name: 'Balneários', image: require('../../assets/categorias/balneario.png') },
-  //   { name: 'Cachoeiras', image: require('../../assets/categorias/cachoeira.png') }
-  // ];
-
-  // // Exemplos de lugares com imagens
-  // const visitedPlaces = [
-  //   { name: 'Alter do Chão', image: require('../../assets/categorias/praia.png')},
-  //   { name: 'Ponta de Pedras', image: require('../../assets/categorias/praia.png') },
-  //   { name: 'Balneário Mutunuí', image: require('../../assets/categorias/praia.png') },
-  //   { name: 'Cachoeira da Cavada', image: require('../../assets/categorias/praia.png') },
-  // ];
-
 
   return (
-  //   <div className='container-home'>
-       <h1>trabalhando</h1>
+    <div className="home-page">
+      <h1>Desfrute de uma jornada com o máximo de conforto.</h1>
+      <div className='search'>
+        <SearchBar />
+      </div>
+  
+      {pointId && <PointDetail id={pointId} />}
       
-  //     <SearchBar className="search-input" />
-      
-  //     <div className="category-buttons">
-  //       <CategoryButtons categories={categories} />
-  //     </div>
-      
-  //     <h2>Lugares mais visitados</h2>
-      
-  //     <VisitedPlacesList places={visitedPlaces} className="visited-places" />
-  //   </div>
- );
-}
+      <div>
+        <CategoryComponent categoryId={1} categoryName="Praias" updatePoints={updatePointsByCategory} />
+        <CategoryComponent categoryId={2} categoryName="Balneários" updatePoints={updatePointsByCategory} />
+        <CategoryComponent categoryId={3} categoryName="Cachoeiras" updatePoints={updatePointsByCategory} />
+      </div>
+    </div>
+  );
+};
 
 export default Home;

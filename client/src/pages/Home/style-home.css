@@ -1,0 +1,105 @@
+/* Estilos para o componente de busca */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.home-page{
+    margin: 0 auto;
+    width: 1200px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+    background-color: #fff;
+}
+h1{
+    color: #3D9CCD;
+    padding: 10px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    position: relative; /* Permite posicionar o ícone de pesquisa dentro do input */
+    display: flex; 
+    flex-direction: row;/* Alinha o input e o ícone na mesma linha */
+    align-items: center; /* Alinha verticalmente o conteúdo do input e do ícone */
+    width: 100%; /* Ocupa a largura total do container pai */
+    height: 40px;
+    max-width: 800px; /* Largura máxima para telas maiores */
+    margin: 0 auto; /* Centraliza o container na tela */
+    border-radius: 50px; /* Arredonda os cantos do container */
+    background-color: #fff; /* Cor de fundo do container */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Efeito de sombra sutil */
+    
+  }
+  .bt-search button{
+    height: 40px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    width: 190px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center; /* Alinha o conteúdo horizontalmente */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+  }
+  
+  /* Estilos para o input de pesquisa */
+  .search-input {
+    padding: 10px 15px; /* Espaçamento interno do input */
+    border-radius: 50px;
+    width: 600px;
+    border: 2px solid #f2f2f2;
+    outline: none; /* Remove o contorno de foco do input */
+    font-size: 16px; /* Tamanho da fonte do texto no input */
+    color: #333;
+    background-color: #fff; /* Cor de fundo do input */
+  }
+  
+  /* Estilos para o ícone de pesquisa */
+  .search-icon {
+    position: absolute; /* Posiciona o ícone dentro do input */
+    right: 220px; /* Espaçamento do ícone à direita do input */
+    top: 50%; /* Posiciona o ícone verticalmente no centro do input */
+    transform: translateY(-50%); /* Compensa o posicionamento vertical do ícone */
+    font-size: 18px; /* Tamanho da fonte do ícone */
+    color: #999; /* Cor do ícone */
+    cursor: pointer; /* Exibe o cursor de mão ao passar o mouse sobre o ícone */
+  }
+  
+
+  /* Estilos para o input quando em foco */
+  .search-input:focus {
+    height: 40px;
+    border-radius: 50px; 
+    background-color: #f2f2f2; /* Altera a cor de fundo do input quando em foco */
+  }
+  
+ /* Create a CSS file (CategoryComponent.css) */
+.icons-categories {
+  display: flex;
+  align-items: center;
+}
+
+
+
+/* Create a CSS file (CategoryComponent.css) */
+.icons-categories {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  /* Style the icons using CSS classes */
+  color: #3D9CCD; /* Set the default color here */
+  font-size: 35px; /* Adjust as needed */
+  margin-right: 10px; /* Add spacing between icon and text */
+}
+
+
+
+
