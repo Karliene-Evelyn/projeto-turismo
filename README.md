@@ -6,15 +6,21 @@
 - Node.js: [Download e Instalação](https://nodejs.org/) 
 - PostgreSQL: [Download e Instalação](https://www.postgresql.org/download/) 
 
-### Passos de Instalação 1. Clone este repositório para o seu computador local usando o seguinte comando: 
+### Passos de Instalação 
+
+1. Clone este repositório para o seu computador local usando o seguinte comando: 
 git clone https://github.com/Karliene-Evelyn/projeto-turismo.git
-2. Navegue até o diretório do projeto: 
+
+3. Navegue até o diretório do projeto: 
 cd projeto-turismo
-3. Instale as dependências do servidor usando o npm: 
+
+4. Instale as dependências do servidor usando o npm: 
 npm install
-4. Navegue até o diretório do cliente: 
+
+5. Navegue até o diretório do cliente: 
 cd client
-5. Instale as dependências do cliente usando o npm: 
+
+6. Instale as dependências do cliente usando o npm: 
 npm install
 
 ### Configuração do Banco de Dados 
