@@ -1,32 +1,44 @@
 import React, { useState } from 'react';
 import SearchBar from './Componentes/SearchBar';
 import PointDetail from './Componentes/PointDetail';
-import CategoryComponent from './Componentes/CategoryComponent';
 import './style-home.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [pointId, setPointId] = useState(null);
+  const [pontosTuristicos, setPontosTuristicos] = useState([]);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handlePointIdUpdate = (id) => {
     setPointId(id);
   };
 
-  const updatePointsByCategory = async (categoryId) => {
+  const handleCategoryClick = async (categoriaSelecionada) => {
     try {
-      const response = await fetch(`/ponto-turistico/categoria/${categoryId}`);
+      const response = await axios.get(`http://localhost:3001/ponto-turistico/categoria/${categoriaSelecionada}`);
       if (!response.ok) {
         throw new Error('Erro ao buscar pontos turísticos por categoria.');
       }
-      const data = await response.json();
-      console.log(data); // Verifique se os dados dos pontos turísticos são recebidos corretamente da API
-      // Atualize o estado dos pontos turísticos com os dados recebidos da API
-      // setPontosTuristicos(data);
+  
+      const data = response.data;
+      if (data.length === 0) {
+        console.log('Nenhum ponto turístico encontrado para a categoria:', categoriaSelecionada);
+        return; 
+      }
+  
+      setPontosTuristicos(data);
+  
+      if (data.length > 0) {
+        const firstResultId = data[0].id; 
+        navigate(`/ponto-turistico/${firstResultId}`, { state: { images: data[0].images } }); 
+      }
     } catch (error) {
-      console.error(error);
-      // Trate o erro adequadamente
+      console.error('Erro ao buscar pontos turísticos por categoria:', error);
+      
     }
   };
-  
 
   return (
     <div className="home-page">
@@ -37,13 +49,10 @@ const Home = () => {
   
       {pointId && <PointDetail id={pointId} />}
       
-      <div>
-        <CategoryComponent categoryId={1} categoryName="Praias" updatePoints={updatePointsByCategory} />
-        <CategoryComponent categoryId={2} categoryName="Balneários" updatePoints={updatePointsByCategory} />
-        <CategoryComponent categoryId={3} categoryName="Cachoeiras" updatePoints={updatePointsByCategory} />
-      </div>
+
     </div>
   );
 };
 
 export default Home;
+

@@ -12,6 +12,7 @@
 
 .container{
     margin: 0 auto;
+    margin-top: 50px;
     width: 80%;
     height: 80vh;
     display: flex;
@@ -76,7 +77,8 @@
     border-radius: 15px;
     font-size: 16px;
     color: black;
-    padding: 20px 20px 20px 50px; /* Ajustado o padding para acomodar o ícone */
+    outline: none;
+    padding: 10px 15px; /* Ajustado o padding para acomodar o ícone */
 }
 
 .form-box .icon{

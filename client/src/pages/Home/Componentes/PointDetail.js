@@ -10,18 +10,17 @@ const PointDetail = () => {
     const fetchPointData = async () => {
       try {
         const response = await axios.get(`http://localhost:3001/ponto-turistico/${id}`);
-        console.log('Dados da resposta:', response.data); // Verificar os dados retornados
         setPointData(response.data);
       } catch (error) {
         console.error('Erro ao buscar dados do ponto turístico:', error);
-        setPointData(null); // Limpar os dados do ponto turístico em caso de erro
+        setPointData(null);
       }
     };
 
     if (id) {
       fetchPointData();
     } else {
-      setPointData(null); // Limpar os dados do ponto turístico se o ID for indefinido
+      setPointData(null);
     }
   }, [id]);
 
@@ -29,13 +28,31 @@ const PointDetail = () => {
     return <p>Nenhum ponto turístico encontrado.</p>;
   }
 
-  const { nome, descricao } = pointData;
+  const { nome, descricao, horario, imagens, servicos, avaliacoes } = pointData;
 
   return (
-    <div>
-      <h2>{nome}</h2>
-      <div>
-        <p>Descrição: {descricao}</p>
+    <div className='container-ponto'>
+      <div className='imagens-grid'>
+        {imagens && imagens.map((imagem, index) => (
+          <img key={index} src={imagem.caminho_da_imagem} alt={imagem.nome_da_imagem} className='imagem-item' />
+        ))}
+      </div>
+
+      <div className='detalhes-pontos'>
+        <div className='nome'>{nome}</div>
+        <div>
+          <div className='descricao'>{descricao}</div>
+          <div className='horario'>Horário: {horario}</div>
+        </div>
+
+        <div className='servicos'>
+          <p>Serviços Disponíveis:</p>
+          <ul>
+            {servicos && servicos.map((servico, index) => (
+              <li key={index}>{servico.nome}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
