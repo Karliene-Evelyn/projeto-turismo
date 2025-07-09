@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+.home-page{
+    margin: 0 auto;
+    width: 1200px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+    background-color: #fff;
+}
+h1{
+    color: #3D9CCD;
+    padding: 10px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    position: relative; /* Permite posicionar o ícone de pesquisa dentro do input */
+    display: flex; 
+    flex-direction: row;/* Alinha o input e o ícone na mesma linha */
+    align-items: center; /* Alinha verticalmente o conteúdo do input e do ícone */
+    width: 100%; /* Ocupa a largura total do container pai */
+    height: 40px;
+    max-width: 800px; /* Largura máxima para telas maiores */
+    margin: 0 auto; /* Centraliza o container na tela */
+    border-radius: 50px; /* Arredonda os cantos do container */
+    background-color: #fff; /* Cor de fundo do container */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Efeito de sombra sutil */
+    
+  }
+  .bt-search button{
+    height: 40px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    width: 190px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center; /* Alinha o conteúdo horizontalmente */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+  }
+  
+  /* Estilos para o input de pesquisa */
+  .search-input {
+    padding: 10px 15px; /* Espaçamento interno do input */
+    border-radius: 50px;
+    width: 600px;
+    border: 2px solid #f2f2f2;
+    outline: none; /* Remove o contorno de foco do input */
+    font-size: 16px; /* Tamanho da fonte do texto no input */
+    color: #333;
+    background-color: #fff; /* Cor de fundo do input */
+  }
+  
+  /* Estilos para o ícone de pesquisa */
+  .search-icon {
+    position: absolute; /* Posiciona o ícone dentro do input */
+    right: 220px; /* Espaçamento do ícone à direita do input */
+    top: 50%; /* Posiciona o ícone verticalmente no centro do input */
+    transform: translateY(-50%); /* Compensa o posicionamento vertical do ícone */
+    font-size: 18px; /* Tamanho da fonte do ícone */
+    color: #999; /* Cor do ícone */
+    cursor: pointer; /* Exibe o cursor de mão ao passar o mouse sobre o ícone */
+  }
+  
+
+  /* Estilos para o input quando em foco */
+  .search-input:focus {
+    height: 40px;
+    border-radius: 50px; 
+    background-color: #f2f2f2; /* Altera a cor de fundo do input quando em foco */
+  }
+  
+ /* Create a CSS file (CategoryComponent.css) */
+.icons-categories {
+  display: flex;
+  align-items: center;
+}
+
+
+
+/* Create a CSS file (CategoryComponent.css) */
+.icons-categories {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  /* Style the icons using CSS classes */
+  color: #3D9CCD; /* Set the default color here */
+  font-size: 35px; /* Adjust as needed */
+  margin-right: 10px; /* Add spacing between icon and text */
+}
+
+/* Estilos para as paginas de pontos */
+.container-ponto {
+  display: flex;
+  justify-content: center;
+  width: 1200px;
+  flex-direction: column;
+  margin-top: 50px;
+  
+}
+
+.detalhes-pontos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px; /* Espaçamento entre os itens */
+  max-width: 1200; /* Define a largura máxima da div */
+ margin-top: 10px;
+}
+
+.imagens-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  
+  grid-auto-rows: auto; /* Altura automática das linhas */
+  gap: 5px; /* Espaçamento entre as imagens */
+
+}
+
+.imagem-item {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Estilo para a primeira imagem */
+.imagem-item:first-child {
+  grid-column: span 2; /* A primeira imagem ocupa 2 colunas */
+}
+
+.nome{
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.descricao{
+  font-size: 20px;
+  text-align: justify;
+}
+
+.horario{
+  font-size: 20px;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+/* Estilo para os serviçoes */
+
+.servicos p{
+  font-size: 20px;
+  margin-top: 5px;
+  font-weight: 500
+}
+
+.servicos li{
+  list-style: none;
+  font-size: 20px
+}
